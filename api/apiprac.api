@@ -1,0 +1,24 @@
+#!usr/bin/python3
+# using std library method forgetting at API data
+
+import urllib.request
+import json
+#Global  / Constant of API we want to look up
+SPACEXURI="https://api.spacexdata.com/v3/cores"
+def main():
+    #create a urllob.request response object by sending an HTTP GET to SPACEXURI
+	coreData=urllib.request.urlopen(SPACEXURI)
+       # pull STRING data off of the 200 response (even tho it's Jason)
+       xString= coreData.read().decode()
+       print(type(xString))
+       #convert STRING data tinto python LIST and DICT
+       listofCores = json.loads(xString)
+       print(type(listOFCores))
+        
+
+
+
+if__name__ =="main":
+    main()
+
+
